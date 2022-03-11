@@ -8,7 +8,7 @@ const Nabver = () => {
       <div className="fixed-top">
         <div className="d-flex py-3 justify-content-around bg-dark">
           <div className="">
-            <h3 className="text-light fw-bold">Awsome Tour</h3>
+            <h3 className="text-light fw-bold">Ritzy Watch Shop</h3>
           </div>
           <div className="">
             <Link

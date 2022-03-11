@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   getAuth,
   signInWithPopup,
@@ -7,33 +7,26 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import initialaizedfirebase from "../FireBase/firebase.init";
-import { useEffect } from "react";
 
 // initialaizedfirebase
 initialaizedfirebase();
 
 const useFirebase = () => {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState({});
   const [error, setError] = useState([]);
 
   const googleProvider = new GoogleAuthProvider();
 
   const auth = getAuth();
-  const googleLogIn = signInWithPopup(auth, googleProvider)
-    .then((result) => {
-      setUser(result.user);
-    })
-    .catch((error) => {
-      const errorMessage = error.message;
-    });
 
+  // user ovserver---
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
       }
     });
-  }, []);
+  }, [auth]);
 
   const logOut = signOut(auth)
     .then(() => {})
@@ -41,7 +34,6 @@ const useFirebase = () => {
 
   return {
     user,
-    googleLogIn,
     logOut,
   };
 };
