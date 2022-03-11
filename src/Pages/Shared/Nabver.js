@@ -56,14 +56,14 @@ const Nabver = () => {
               >
                 LogOut
               </button>
-            ) : (
-              <Link
-                className="text-decoration-none pe-2 text-light btn btn-outline-danger me-1"
-                to="/login"
-              >
-                Login
-              </Link>
-            )} */}
+            ) : ( */}
+            <Link
+              className="text-decoration-none pe-2 text-light btn btn-outline-danger me-1"
+              to="/login"
+            >
+              Login
+            </Link>
+            {/* )} */}
 
             {/* {user?.email && (
               <span className="text-light">
