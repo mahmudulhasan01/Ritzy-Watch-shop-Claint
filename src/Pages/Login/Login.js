@@ -1,9 +1,19 @@
 import { Box, Button, Container, Grid, TextField } from "@material-ui/core";
+import { Alert } from "@mui/material";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({});
+
+  const {
+    user,
+    loginWithEamilPassword,
+    googleLogin,
+    githubLogin,
+    facebookLogin,
+  } = useAuth();
 
   const handleOnBlur = (e) => {
     const field = e.target.name;
@@ -14,11 +24,11 @@ const Login = () => {
   };
 
   const handleLoginSubmit = (e) => {
-    // loginUser(
-    //   loginData.email,
-    //   loginData.password
-    //   //  location, history
-    // );
+    loginWithEamilPassword(
+      loginData.email,
+      loginData.password
+      //  location, history
+    );
     e.preventDefault();
   };
   return (
@@ -64,28 +74,28 @@ const Login = () => {
                       </Button>
                     </NavLink>
                     {/* {isLoading && <CircularProgress />} */}
-                    {/* {user?.email && (
+                    {user?.email && (
                       <Alert severity="success">Login successfully!</Alert>
-                    )} */}
+                    )}
                     {/* {authError && <Alert severity="error">{authError}</Alert>} */}
                   </form>
                 </Grid>
                 <br />
 
                 <button
-                  // onClick={handleGoogleLogin}
+                  onClick={googleLogin}
                   className="bg-dark rounded p-1 px-3 me-4 btn"
                 >
                   <i className="fab fa-google text-warning fs-3"></i>
                 </button>
                 <button
-                  // onClick={handleGoogleLogin}
+                  onClick={githubLogin}
                   className="bg-dark rounded p-1 px-3 me-4 btn"
                 >
                   <i className="fab fa-github text-warning fs-3"></i>
                 </button>
                 <button
-                  // onClick={handleGoogleLogin}
+                  onClick={facebookLogin}
                   className="bg-dark rounded p-1 px-3 me-4 btn"
                 >
                   <i className="fab  fa-facebook-f text-warning fs-3"></i>

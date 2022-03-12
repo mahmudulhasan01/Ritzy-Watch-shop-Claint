@@ -3,13 +3,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Login/Register";
-import AuthProvaider from "./Contexts/AuthProvaider/AuthProvaider";
+import AuthProvider from "./Contexts/AuthProvider/AuthProvider";
 // import Login from "./Pages/Login/Login";
 
 function App() {
   return (
     <div className="App">
-      <AuthProvaider>
+      <AuthProvider>
         <BrowserRouter>
           <Routes>
             {/* <Route path="/" element={<Layout />}> */}
@@ -23,7 +23,7 @@ function App() {
         </Route> */}
           </Routes>
         </BrowserRouter>
-      </AuthProvaider>
+      </AuthProvider>
     </div>
   );
 }

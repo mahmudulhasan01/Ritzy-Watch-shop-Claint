@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { NavHashLink } from "react-router-hash-link";
+import useAuth from "../../Hooks/useAuth";
 
 const Nabver = () => {
+  const { user, logout } = useAuth();
   return (
     <div className="mb-5">
       <div className="fixed-top">
@@ -24,7 +26,7 @@ const Nabver = () => {
               Shop
             </Link>
 
-            {/* {user?.email ? (
+            {user?.email ? (
               <Link
                 className="text-decoration-none pe-2 text-light btn btn-outline-danger me-1"
                 to={`/mybooking`}
@@ -38,34 +40,34 @@ const Nabver = () => {
               >
                 About us
               </NavHashLink>
-            )} */}
+            )}
 
-            {/* {user?.email && (
+            {user?.email && (
               <Link
                 className="text-decoration-none  pe-2 text-light btn btn-outline-danger me-1"
                 to="/menageorder"
               >
                 Manage All Booking
               </Link>
-            )} */}
+            )}
 
-            {/* {user?.email ? (
+            {user?.email ? (
               <button
-                onClick={logOut}
+                onClick={logout}
                 className=" text-light btn btn-outline-danger me-1"
               >
                 LogOut
               </button>
-            ) : ( */}
-            <Link
-              className="text-decoration-none pe-2 text-light btn btn-outline-danger me-1"
-              to="/login"
-            >
-              Login
-            </Link>
-            {/* )} */}
+            ) : (
+              <Link
+                className="text-decoration-none pe-2 text-light btn btn-outline-danger me-1"
+                to="/login"
+              >
+                Login
+              </Link>
+            )}
 
-            {/* {user?.email && (
+            {user?.email && (
               <span className="text-light">
                 <img
                   width="35px"
@@ -75,7 +77,7 @@ const Nabver = () => {
                 />{" "}
                 {user.displayName}
               </span>
-            )} */}
+            )}
           </div>
         </div>
       </div>
